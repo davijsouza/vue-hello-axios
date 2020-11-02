@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  app:
+    container_name: app
+    restart: always
+    build: ./backend
+    expose:
+       - '9000'
+
+  frontend:
+    container_name: frontend
+    restart: always
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - app  
+
+
